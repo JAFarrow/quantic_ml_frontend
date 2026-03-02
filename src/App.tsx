@@ -65,7 +65,7 @@ const App = () => {
 
   const handleSubmitRows = async () => {
     setIsRowSubmitting(true);
-    setRowStatus({ state: "loading", message: "Submitting rows to /api/insert…" });
+    setRowStatus({ state: "loading", message: "Submitting rows..." });
     const payloadRows = rows.map(buildRequestRow);
 
     try {
@@ -120,7 +120,7 @@ const App = () => {
     }
 
     setIsUploadSubmitting(true);
-    setUploadStatus({ state: "loading", message: "Uploading CSV to /api/upload…" });
+    setUploadStatus({ state: "loading", message: "Uploading CSV..." });
 
     const formData = new FormData();
     formData.append("file", selectedFile);
@@ -177,8 +177,7 @@ const App = () => {
             <article className="row-card" key={`row-${index}`}>
               <header className="row-card-header">
                 <div>
-                  <p className="row-title">Row {index + 1}</p>
-                  <p className="row-subtitle">Every field is required (unless marked optional).</p>
+                  <p className="row-title">Record {index + 1}</p>
                 </div>
                 <div className="row-card-meta">
                   {rowResults[index] && <ResultFlag result={rowResults[index]} />}
