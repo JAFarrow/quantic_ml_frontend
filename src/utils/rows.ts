@@ -20,20 +20,6 @@ const stringOrNull = (value: string): string | null => {
   return trimmed === "" ? null : trimmed;
 };
 
-const parseLabel = (value: string): 0 | 1 | null => {
-  const trimmed = value.trim();
-  if (trimmed === "") {
-    return null;
-  }
-  const numeric = Number(trimmed);
-  if (numeric === 1) {
-    return 1;
-  }
-  if (numeric === 0) {
-    return 0;
-  }
-  return null;
-};
 
 export function buildRequestRow(form: PredictionRowForm): PredictionRow {
   return {
@@ -64,6 +50,6 @@ export function buildRequestRow(form: PredictionRowForm): PredictionRow {
     SizeOfOptionalHeader: numberOrNull(form.SizeOfOptionalHeader),
     SizeOfUninitializedData: toNumber(form.SizeOfUninitializedData),
     TimeDateStamp: toNumber(form.TimeDateStamp),
-    Label: parseLabel(form.Label)
+    Label: null
   };
 }

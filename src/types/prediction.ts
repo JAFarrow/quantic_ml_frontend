@@ -29,6 +29,8 @@ export interface PredictionRow {
   Label?: 0 | 1 | null;
 }
 
+export type PredictionRowFormKeys = Exclude<keyof PredictionRow, "Label">;
+
 export type PredictionRowForm = {
-  [K in keyof PredictionRow]-?: string;
+  [K in PredictionRowFormKeys]-?: string;
 };

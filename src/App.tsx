@@ -5,9 +5,9 @@ import RowFieldInput from "./components/RowFieldInput";
 import ResultFlag from "./components/ResultFlag";
 import {
   predictionFieldDefinitions,
-  createDefaultPredictionRowForm,
   createEmptyPredictionRowForm,
-  PredictionFieldKey
+  PredictionFieldKey,
+  prefilledPredictionRows
 } from "./data/predictionFields";
 import { buildRequestRow } from "./utils/rows";
 import {
@@ -25,7 +25,9 @@ type AsyncState = {
 };
 
 const App = () => {
-  const [rows, setRows] = useState<PredictionRowForm[]>(() => [createDefaultPredictionRowForm()]);
+  const [rows, setRows] = useState<PredictionRowForm[]>(() =>
+    prefilledPredictionRows.map((row) => ({ ...row }))
+  );
   const [rowResults, setRowResults] = useState<Record<number, PredictionResult>>({});
   const [rowStatus, setRowStatus] = useState<AsyncState>({ state: "idle" });
   const [isRowSubmitting, setIsRowSubmitting] = useState(false);

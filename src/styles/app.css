@@ -366,7 +366,3 @@ button.ghost {
   -webkit-appearance: none;
   margin: 0;
 }
-
-.field-control input[type="number"] {
-  -moz-appearance: textfield;
-}
